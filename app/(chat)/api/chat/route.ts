@@ -168,6 +168,9 @@ export async function POST(request: Request) {
           selectedChatModel.includes("reasoning") ||
           selectedChatModel.includes("thinking");
 
+        console.log("[Chat API] Using model:", selectedChatModel);
+        console.log("[Chat API] Is reasoning model:", isReasoningModel);
+
         const result = streamText({
           model: getLanguageModel(selectedChatModel),
           system: systemPrompt({ selectedChatModel, requestHints }),
